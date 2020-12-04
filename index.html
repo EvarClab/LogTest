@@ -58,19 +58,26 @@
     </tbody>
 </table>
 <script>
-    var ajax = null;
+    // var ajax = null;
 
-    function refreshServerInfo() {
-        ajax = new XMLHttpRequest();
-        ajax.onreadystatechange = showData;
-        ajax.open('GET', 'https://7r0s80ve99.execute-api.ap-northeast-2.amazonaws.com/deploy/all', true);
-        ajax.send();
-    }       
-    setInterval(refreshServerInfo, 5000);
+    // function refreshServerInfo() {
+    //     ajax = new XMLHttpRequest();
+    //     ajax.onreadystatechange = showData;
+    //     ajax.open('GET', 'https://7r0s80ve99.execute-api.ap-northeast-2.amazonaws.com/deploy/all', true);
+    //     ajax.send();
+    // }       
+    // setInterval(refreshServerInfo, 5000);
 
-    function showData() {
-        console.log(ajax);
+    // function showData() {
+    //     console.log(ajax);
     }
+    
+    const API_URL = "https://7r0s80ve99.execute-api.ap-northeast-2.amazonaws.com/deploy/all"; 
+    
+    function get() { 
+      fetch(API_URL, { headers: { 'Accept': 'application/json' } }).then(res => res.json()).then(data => console.log(data)) .catch(err => console.error(err)); 
+    }
+    
 </script>
 
 </body>
