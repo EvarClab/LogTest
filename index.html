@@ -76,9 +76,11 @@
     
     function get() { 
       fetch(API_URL, 
-        { headers: { 'Accept': 'application/json' } }
-      ).then(res => res.json()).then(data => console.log(data)).catch(err => console.error(err)); 
+        { headers: { 'Accept': 'application/json', 'Access-Control-Allow-Origin':'*' } }
+      ).then(res => res.json()).then(data =>  {console.log('hi'); console.log(data);} ).catch(err => console.error(err)); 
     }
+
+    get();
 
 
     
