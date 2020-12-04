@@ -77,12 +77,13 @@
     function get() { 
       fetch(API_URL, 
         { headers: { 'Accept': 'application/json' } }
-      ).then(data =>  {console.log('hi'); console.log(data);} ).catch(err => console.error(err)); 
+      ).then(res => res.json()).then(data => {
+        console.log('hi'); 
+        console.log(data); 
+      }).catch(err => console.error(err)); 
     }
 
-    get();
-
-
+    setInterval(get, 5000);
     
 </script>
 
