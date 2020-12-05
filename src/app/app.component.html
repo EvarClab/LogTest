@@ -1,11 +1,11 @@
-<select>
+<select #selectData>
   <option>BMS 데이터</option>
   <option>CART 데이터</option>
   <option>파워모듈 데이터</option>
 </select>
 <table class="table table-condensed">
   <thead>
-    <tr>
+    <tr *ngIf="selectData.value === 'BMS 데이터'">
       <th>packVoltage</th>
       <th>packAmphere</th>
       <th>BMSState</th>
@@ -29,8 +29,90 @@
       <th>ESSHWVersion</th>
       <th>ESSSWVersion</th>
     </tr>
+    <tr *ngIf="selectData.value === 'CART 데이터'">
+      <th>LEDStat</th>
+      <th>isEmergencyStop</th>
+      <th>isCableDisconnect</th>
+      <th>isHapticOperate</th>
+      <th>isFanOperate</th>
+      <th>LeadAcidBatterySOC</th>
+      <th>cartTemperature1</th>
+      <th>cartTemperature2</th>
+      <th>cartHumidity1</th>
+      <th>cartHumidity2</th>
+      <th>sonic1</th>
+      <th>sonic2</th>
+      <th>sonic3</th>
+      <th>sonic4</th>
+      <th>sonic5</th>
+      <th>gyroX</th>
+      <th>gyroY</th>
+      <th>gyroZ</th>
+    </tr>
+    <tr *ngIf="selectData.value === '파워모듈 데이터'">
+      <th>status</th>
+      <th>firmVer</th>
+      <th>fault1</th>
+      <th>fault2</th>
+      <th>fault3</th>
+      <th>dischargingKwh</th>
+      <th>cableVoltage</th>
+      <th>cableCurrent</th>
+    </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="selectData.value === 'BMS 데이터'">
+    <tr *ngFor="let data of datasBMS">
+      <td>{{data.packVoltage}}</td>
+      <td>{{data.packAmphere}}</td>
+      <td>{{data.BMSState}}</td>
+      <td>{{data.faultPack}}</td>
+      <td>{{data.warningPack}}</td>
+      <td>{{data.faultCell}}</td>
+      <td>{{data.warningCell}}</td>
+      <td>{{data.ESSSOC}}</td>
+      <td>{{data.averageVoltage}}</td>
+      <td>{{data.lowestVoltage}}</td>
+      <td>{{data.highestVoltage}}</td>
+      <td>{{data.differenceVoltage}}</td>
+      <td>{{data.averageTemperature}}</td>
+      <td>{{data.lowestTemperature}}</td>
+      <td>{{data.highestTemperature}}</td>
+      <td>{{data.differenceTemperature}}</td>
+      <td>{{data.ESSAccumulateCharginAmount}}</td>
+      <td>{{data.ESSAccumulateDisChargingAmount}}</td>
+      <td>{{data.ESSTemperature1}}</td>
+      <td>{{data.ESSTemperature2}}</td>
+      <td>{{data.ESSHWVersion}}</td>
+      <td>{{data.ESSSWVersion}}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="selectData.value === 'CART 데이터'">
+    <tr *ngFor="let data of datasBMS">
+      <td>{{data.packVoltage}}</td>
+      <td>{{data.packAmphere}}</td>
+      <td>{{data.BMSState}}</td>
+      <td>{{data.faultPack}}</td>
+      <td>{{data.warningPack}}</td>
+      <td>{{data.faultCell}}</td>
+      <td>{{data.warningCell}}</td>
+      <td>{{data.ESSSOC}}</td>
+      <td>{{data.averageVoltage}}</td>
+      <td>{{data.lowestVoltage}}</td>
+      <td>{{data.highestVoltage}}</td>
+      <td>{{data.differenceVoltage}}</td>
+      <td>{{data.averageTemperature}}</td>
+      <td>{{data.lowestTemperature}}</td>
+      <td>{{data.highestTemperature}}</td>
+      <td>{{data.differenceTemperature}}</td>
+      <td>{{data.ESSAccumulateCharginAmount}}</td>
+      <td>{{data.ESSAccumulateDisChargingAmount}}</td>
+      <td>{{data.ESSTemperature1}}</td>
+      <td>{{data.ESSTemperature2}}</td>
+      <td>{{data.ESSHWVersion}}</td>
+      <td>{{data.ESSSWVersion}}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="selectData.value === '파워모듈 데이터'">
     <tr *ngFor="let data of datasBMS">
       <td>{{data.packVoltage}}</td>
       <td>{{data.packAmphere}}</td>
