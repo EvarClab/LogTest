@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/backend.service';
 
+import * as dayjs from 'dayjs';
+import * as isLeapYear from 'dayjs/plugin/isLeapYear';
+import * as utc from 'dayjs/plugin/utc';
+import 'dayjs/locale/ko';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +15,34 @@ export class AppComponent {
   title = 'LogTest';
 
   datasBMS: Array<Object> = [];
+  datasCART: Array<Object> = [];
+  datasPMODULE: Array<Object> = [];
 
   API_URL = "https://7r0s80ve99.execute-api.ap-northeast-2.amazonaws.com/deploy/all"; 
 
   constructor(private backend:BackendService) { 
-    console.log("constr");
-    // this.backend.getData().then( (data:any) => {
-    //   console.log(data);
-    // });
+
+    dayjs.extend(isLeapYear);
+    dayjs.extend(utc);
+    dayjs.locale('ko');   
 
     setInterval( ()=>{
       this.datasBMS = [];
+      this.datasCART = [];
+      this.datasPMODULE = [];
+
       this.backend.getData().then( (data:any) => {
         for(let d in data) {
           // let message = JSON.parse(data[d].message);
           let m = data[d].message;
-          this.datasBMS.push(m);
+          let url = data[d].url;
+          let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
+          m.createdAt = time;
+          switch(url) {
+            case 'bms': this.datasBMS.unshift(m); break;
+            case 'cart': this.datasCART.unshift(m); break;
+            case 'pmodule': this.datasPMODULE.unshift(m); break;
+          }
         }
         console.log(this.datasBMS);
       });

@@ -6,6 +6,7 @@
 <table class="table table-condensed">
   <thead>
     <tr *ngIf="selectData.value === 'BMS 데이터'">
+      <th>로그시간</th>
       <th>packVoltage</th>
       <th>packAmphere</th>
       <th>BMSState</th>
@@ -30,6 +31,7 @@
       <th>ESSSWVersion</th>
     </tr>
     <tr *ngIf="selectData.value === 'CART 데이터'">
+      <th>로그시간</th>
       <th>LEDStat</th>
       <th>isEmergencyStop</th>
       <th>isCableDisconnect</th>
@@ -50,6 +52,7 @@
       <th>gyroZ</th>
     </tr>
     <tr *ngIf="selectData.value === '파워모듈 데이터'">
+      <th>로그시간</th>
       <th>status</th>
       <th>firmVer</th>
       <th>fault1</th>
@@ -62,6 +65,7 @@
   </thead>
   <tbody *ngIf="selectData.value === 'BMS 데이터'">
     <tr *ngFor="let data of datasBMS">
+      <td>{{data.createdAt}}</td>
       <td>{{data.packVoltage}}</td>
       <td>{{data.packAmphere}}</td>
       <td>{{data.BMSState}}</td>
@@ -87,36 +91,39 @@
     </tr>
   </tbody>
   <tbody *ngIf="selectData.value === 'CART 데이터'">
-    <tr *ngFor="let data of datasBMS">
-      <td>{{data.packVoltage}}</td>
-      <td>{{data.packAmphere}}</td>
-      <td>{{data.BMSState}}</td>
-      <td>{{data.faultPack}}</td>
-      <td>{{data.warningPack}}</td>
-      <td>{{data.faultCell}}</td>
-      <td>{{data.warningCell}}</td>
-      <td>{{data.ESSSOC}}</td>
-      <td>{{data.averageVoltage}}</td>
-      <td>{{data.lowestVoltage}}</td>
-      <td>{{data.highestVoltage}}</td>
-      <td>{{data.differenceVoltage}}</td>
-      <td>{{data.averageTemperature}}</td>
-      <td>{{data.lowestTemperature}}</td>
-      <td>{{data.highestTemperature}}</td>
-      <td>{{data.differenceTemperature}}</td>
-      <td>{{data.ESSAccumulateCharginAmount}}</td>
-      <td>{{data.ESSAccumulateDisChargingAmount}}</td>
-      <td>{{data.ESSTemperature1}}</td>
-      <td>{{data.ESSTemperature2}}</td>
-      <td>{{data.ESSHWVersion}}</td>
-      <td>{{data.ESSSWVersion}}</td>
+    <tr *ngFor="let data of datasCART">
+      <td>{{data.createdAt}}</td>
+      <td>{{data.LEDStat}}</td>
+      <td>{{data.isEmergencyStop}}</td>
+      <td>{{data.isCableDisconnect}}</td>
+      <td>{{data.isHapticOperate}}</td>
+      <td>{{data.isFanOperate}}</td>
+      <td>{{data.LeadAcidBatterySOC}}</td>
+      <td>{{data.cartTemperature1}}</td>
+      <td>{{data.cartTemperature2}}</td>
+      <td>{{data.cartHumidity1}}</td>
+      <td>{{data.cartHumidity2}}</td>
+      <td>{{data.sonic1}}</td>
+      <td>{{data.sonic2}}</td>
+      <td>{{data.sonic3}}</td>
+      <td>{{data.sonic4}}</td>
+      <td>{{data.sonic5}}</td>
+      <td>{{data.gyroX}}</td>
+      <td>{{data.gyroY}}</td>
+      <td>{{data.gyroZ}}</td>
     </tr>
   </tbody>
   <tbody *ngIf="selectData.value === '파워모듈 데이터'">
-    <tr *ngFor="let data of datasBMS">
-      <td>{{data.packVoltage}}</td>
-      <td>{{data.packAmphere}}</td>
-      <td>{{data.BMSState}}</td>
+    <tr *ngFor="let data of datasPMODULE">
+      <td>{{data.createdAt}}</td>
+      <td>{{data.status}}</td>
+      <td>{{data.firmVer}}</td>
+      <td>{{data.fault1}}</td>
+      <td>{{data.fault2}}</td>
+      <td>{{data.fault3}}</td>
+      <td>{{data.dischargingKwh}}</td>
+      <td>{{data.cableVoltage}}</td>
+      <td>{{data.cableCurrent}}</td>
     </tr>
   </tbody>
 </table>
