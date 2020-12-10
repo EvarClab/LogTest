@@ -6,50 +6,50 @@
 <table class="table table-condensed">
   <thead>
     <tr *ngIf="selectData.value === 'BMS 데이터'">
-      <th>로그시간</th>
-      <th>packVoltage</th>
-      <th>packAmphere</th>
-      <th>BMSState</th>
-      <th>faultPack</th>
-      <th>warningPack</th>
-      <th>faultCell</th>
-      <th>warningCell</th>
-      <th>ESSSOC</th>
-      <th>averageVoltage</th>
-      <th>lowestVoltage</th>
-      <th>highestVoltage</th>
-      <th>differenceVoltage</th>
-      <th>averageTemperature</th>
-      <th>lowestTemperature</th>
-      <th>highestTemperature</th>
-      <th>differenceTemperature</th>
-      <th>ESSAccumulateChargingAmount</th>
-      <th>ESSAccumulateDisChargingAmount</th>
-      <th>ESSTemperature1</th>
-      <th>ESSTemperature2</th>
-      <th>ESSHWVersion</th>
-      <th>ESSSWVersion</th>
+      <th>check_time</th>
+      <th>bms_state</th>
+      <th>accumulate_charging_amount</th>
+      <th>accumulate_discharging_amount</th>
+      <th>hw_version</th>
+      <th>soc</th>
+      <th>sw_version</th>
+      <th>temperature1</th>
+      <th>temperature2</th>
+      <th>average_temperature</th>
+      <th>average_voltage</th>
+      <th>difference_temperature</th>
+      <th>difference_voltage</th>
+      <th>fault_cell</th>
+      <th>fault_pack</th>
+      <th>highest_temperature</th>
+      <th>highest_voltage</th>
+      <th>lowest_temperature</th>
+      <th>lowest_voltage</th>
+      <th>pack_amphere</th>
+      <th>pack_voltage</th>
+      <th>warning_cell</th>
+      <th>warning_pack</th>
     </tr>
     <tr *ngIf="selectData.value === 'CART 데이터'">
-      <th>로그시간</th>
-      <th>LEDStat</th>
-      <th>isEmergencyStop</th>
+      <th>check_time</th>
+      <th>led_state</th>
+      <th>lead_acid_battery_soc</th>
+      <th>humidity1</th>
+      <th>humidity2</th>
+      <th>temperature1</th>
+      <th>temperature2</th>
+      <th>gyro_x</th>
+      <th>gyro_y</th>
+      <th>gyro_z</th>
       <th>isCableDisconnect</th>
-      <th>isHapticOperate</th>
+      <th>isEmergencyStop</th>
       <th>isFanOperate</th>
-      <th>LeadAcidBatterySOC</th>
-      <th>cartTemperature1</th>
-      <th>cartTemperature2</th>
-      <th>cartHumidity1</th>
-      <th>cartHumidity2</th>
+      <th>isHapticOperate</th>
       <th>sonic1</th>
       <th>sonic2</th>
       <th>sonic3</th>
       <th>sonic4</th>
       <th>sonic5</th>
-      <th>gyroX</th>
-      <th>gyroY</th>
-      <th>gyroZ</th>
     </tr>
     <tr *ngIf="selectData.value === '파워모듈 데이터'">
       <th>로그시간</th>
@@ -65,65 +65,65 @@
   </thead>
   <tbody *ngIf="selectData.value === 'BMS 데이터'">
     <tr *ngFor="let data of datasBMS">
-      <td>{{data.createdAt}}</td>
-      <td>{{data.packVoltage}}</td>
-      <td>{{data.packAmphere}}</td>
-      <td>{{data.BMSState}}</td>
-      <td>{{data.faultPack}}</td>
-      <td>{{data.warningPack}}</td>
-      <td>{{data.faultCell}}</td>
-      <td>{{data.warningCell}}</td>
-      <td>{{data.ESSSOC}}</td>
-      <td>{{data.averageVoltage}}</td>
-      <td>{{data.lowestVoltage}}</td>
-      <td>{{data.highestVoltage}}</td>
-      <td>{{data.differenceVoltage}}</td>
-      <td>{{data.averageTemperature}}</td>
-      <td>{{data.lowestTemperature}}</td>
-      <td>{{data.highestTemperature}}</td>
-      <td>{{data.differenceTemperature}}</td>
-      <td>{{data.ESSAccumulateChargingAmount}}</td>
-      <td>{{data.ESSAccumulateDisChargingAmount}}</td>
-      <td>{{data.ESSTemperature1}}</td>
-      <td>{{data.ESSTemperature2}}</td>
-      <td>{{data.ESSHWVersion}}</td>
-      <td>{{data.ESSSWVersion}}</td>
+      <td>{{data.check_time}}</td>
+      <td>{{data.bms_state}}</td>
+      <td>{{data.accumulate_charging_amount}}</td>
+      <td>{{data.accumulate_discharging_amount}}</td>
+      <td>{{data.hw_version}}</td>
+      <td>{{data.soc}}</td>
+      <td>{{data.sw_version}}</td>
+      <td>{{data.temperature1}}</td>
+      <td>{{data.temperature2}}</td>
+      <td>{{data.average_temperature}}</td>
+      <td>{{data.average_voltage}}</td>
+      <td>{{data.difference_temperature}}</td>
+      <td>{{data.difference_voltage}}</td>
+      <td>{{data.fault_cell}}</td>
+      <td>{{data.fault_pack}}</td>
+      <td>{{data.highest_temperature}}</td>
+      <td>{{data.highest_voltage}}</td>
+      <td>{{data.lowest_temperature}}</td>
+      <td>{{data.lowest_voltage}}</td>
+      <td>{{data.pack_amphere}}</td>
+      <td>{{data.pack_voltage}}</td>
+      <td>{{data.warning_cell}}</td>
+      <td>{{data.warning_pack}}</td>
     </tr>
   </tbody>
   <tbody *ngIf="selectData.value === 'CART 데이터'">
     <tr *ngFor="let data of datasCART">
-      <td>{{data.createdAt}}</td>
-      <td>{{data.LEDStat}}</td>
-      <td>{{data.isEmergencyStop}}</td>
+      <td>{{data.check_time}}</td>
+      <td>{{data.led_state}}</td>
+      <td>{{data.lead_acid_battery_soc}}</td>
+      <td>{{data.humidity1}}</td>
+      <td>{{data.humidity2}}</td>
+      <td>{{data.temperature1}}</td>
+      <td>{{data.temperature2}}</td>
+      <td>{{data.gyro_x}}</td>
+      <td>{{data.gyro_y}}</td>
+      <td>{{data.gyro_z}}</td>
       <td>{{data.isCableDisconnect}}</td>
-      <td>{{data.isHapticOperate}}</td>
+      <td>{{data.isEmergencyStop}}</td>
       <td>{{data.isFanOperate}}</td>
-      <td>{{data.LeadAcidBatterySOC}}</td>
-      <td>{{data.cartTemperature1}}</td>
-      <td>{{data.cartTemperature2}}</td>
-      <td>{{data.cartHumidity1}}</td>
-      <td>{{data.cartHumidity2}}</td>
+      <td>{{data.isHapticOperate}}</td>
       <td>{{data.sonic1}}</td>
       <td>{{data.sonic2}}</td>
       <td>{{data.sonic3}}</td>
       <td>{{data.sonic4}}</td>
       <td>{{data.sonic5}}</td>
-      <td>{{data.gyroX}}</td>
-      <td>{{data.gyroY}}</td>
-      <td>{{data.gyroZ}}</td>
     </tr>
   </tbody>
   <tbody *ngIf="selectData.value === '파워모듈 데이터'">
     <tr *ngFor="let data of datasPMODULE">
-      <td>{{data.createdAt}}</td>
-      <td>{{data.status}}</td>
-      <td>{{data.firmVer}}</td>
+      <td>{{data.check_time}}</td>
+      <td>{{data.cable_current}}</td>
+      <td>{{data.cable_voltage}}</td>
+      <td>{{data.discharging_kwh}}</td>
       <td>{{data.fault1}}</td>
       <td>{{data.fault2}}</td>
       <td>{{data.fault3}}</td>
-      <td>{{data.dischargingKwh}}</td>
-      <td>{{data.cableVoltage}}</td>
-      <td>{{data.cableCurrent}}</td>
+      <td>{{data.firm_ver}}</td>
+      <td>{{data.status}}</td>
     </tr>
   </tbody>
 </table>
