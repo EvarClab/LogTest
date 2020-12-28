@@ -4,128 +4,132 @@
   <option>파워모듈 데이터</option>
 </select>
 <table class="table table-condensed">
-  <thead>
-    <tr *ngIf="selectData.value === 'BMS 데이터'">
-      <th>check_time</th>
-      <th>bms_state</th>
-      <th>accumulate_charging_amount</th>
-      <th>accumulate_discharging_amount</th>
-      <th>hw_version</th>
-      <th>soc</th>
-      <th>sw_version</th>
-      <th>temperature1</th>
-      <th>temperature2</th>
-      <th>average_temperature</th>
-      <th>average_voltage</th>
-      <th>difference_temperature</th>
-      <th>difference_voltage</th>
-      <th>fault_cell</th>
-      <th>fault_pack</th>
-      <th>highest_temperature</th>
-      <th>highest_voltage</th>
-      <th>lowest_temperature</th>
-      <th>lowest_voltage</th>
-      <th>pack_amphere</th>
-      <th>pack_voltage</th>
-      <th>warning_cell</th>
-      <th>warning_pack</th>
-    </tr>
-    <tr *ngIf="selectData.value === 'CART 데이터'">
-      <th>check_time</th>
-      <th>led_state</th>
-      <th>lead_acid_battery_soc</th>
-      <th>humidity1</th>
-      <th>humidity2</th>
-      <th>temperature1</th>
-      <th>temperature2</th>
-      <th>gyro_x</th>
-      <th>gyro_y</th>
-      <th>gyro_z</th>
-      <th>isCableDisconnect</th>
-      <th>isEmergencyStop</th>
-      <th>isFanOperate</th>
-      <th>isHapticOperate</th>
-      <th>sonic1</th>
-      <th>sonic2</th>
-      <th>sonic3</th>
-      <th>sonic4</th>
-      <th>sonic5</th>
-    </tr>
-    <tr *ngIf="selectData.value === '파워모듈 데이터'">
-      <th>로그시간</th>
-      <th>status</th>
-      <th>firmVer</th>
-      <th>fault1</th>
-      <th>fault2</th>
-      <th>fault3</th>
-      <th>dischargingKwh</th>
-      <th>cableVoltage</th>
-      <th>cableCurrent</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="selectData.value === 'BMS 데이터'">
-    <tr *ngFor="let data of datasBMS">
-      <td>{{data.check_time}}</td>
-      <td>{{data.bms_state}}</td>
-      <td>{{data.accumulate_charging_amount}}</td>
-      <td>{{data.accumulate_discharging_amount}}</td>
-      <td>{{data.hw_version}}</td>
-      <td>{{data.soc}}</td>
-      <td>{{data.sw_version}}</td>
-      <td>{{data.temperature1}}</td>
-      <td>{{data.temperature2}}</td>
-      <td>{{data.average_temperature}}</td>
-      <td>{{data.average_voltage}}</td>
-      <td>{{data.difference_temperature}}</td>
-      <td>{{data.difference_voltage}}</td>
-      <td>{{data.fault_cell}}</td>
-      <td>{{data.fault_pack}}</td>
-      <td>{{data.highest_temperature}}</td>
-      <td>{{data.highest_voltage}}</td>
-      <td>{{data.lowest_temperature}}</td>
-      <td>{{data.lowest_voltage}}</td>
-      <td>{{data.pack_amphere}}</td>
-      <td>{{data.pack_voltage}}</td>
-      <td>{{data.warning_cell}}</td>
-      <td>{{data.warning_pack}}</td>
-    </tr>
-  </tbody>
-  <tbody *ngIf="selectData.value === 'CART 데이터'">
-    <tr *ngFor="let data of datasCART">
-      <td>{{data.check_time}}</td>
-      <td>{{data.led_state}}</td>
-      <td>{{data.lead_acid_battery_soc}}</td>
-      <td>{{data.humidity1}}</td>
-      <td>{{data.humidity2}}</td>
-      <td>{{data.temperature1}}</td>
-      <td>{{data.temperature2}}</td>
-      <td>{{data.gyro_x}}</td>
-      <td>{{data.gyro_y}}</td>
-      <td>{{data.gyro_z}}</td>
-      <td>{{data.isCableDisconnect}}</td>
-      <td>{{data.isEmergencyStop}}</td>
-      <td>{{data.isFanOperate}}</td>
-      <td>{{data.isHapticOperate}}</td>
-      <td>{{data.sonic1}}</td>
-      <td>{{data.sonic2}}</td>
-      <td>{{data.sonic3}}</td>
-      <td>{{data.sonic4}}</td>
-      <td>{{data.sonic5}}</td>
-    </tr>
-  </tbody>
-  <tbody *ngIf="selectData.value === '파워모듈 데이터'">
-    <tr *ngFor="let data of datasPMODULE">
-      <td>{{data.check_time}}</td>
-      <td>{{data.cable_current}}</td>
-      <td>{{data.cable_voltage}}</td>
-      <td>{{data.discharging_kwh}}</td>
-      <td>{{data.fault1}}</td>
-      <td>{{data.fault2}}</td>
-      <td>{{data.fault3}}</td>
-      <td>{{data.firm_ver}}</td>
-      <td>{{data.status}}</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr *ngIf="selectData.value === 'BMS 데이터'" style="font-size:10px;">
+            <th>아이디</th>
+            <th>check_time</th>
+            <th>bms_state</th>
+            <th>accumulate_charging_amount</th>
+            <th>accumulate_discharging_amount</th>
+            <th>hw_version</th>
+            <th>soc</th>
+            <th>sw_version</th>
+            <th>temperature1</th>
+            <th>temperature2</th>
+            <th>average_temperature</th>
+            <th>average_voltage</th>
+            <th>difference_temperature</th>
+            <th>difference_voltage</th>
+            <th>fault_cell</th>
+            <th>fault_pack</th>
+            <th>highest_temperature</th>
+            <th>highest_voltage</th>
+            <th>lowest_temperature</th>
+            <th>lowest_voltage</th>
+            <th>pack_amphere</th>
+            <th>pack_voltage</th>
+            <th>warning_cell</th>
+            <th>warning_pack</th>
+        </tr>
+        <tr *ngIf="selectData.value === 'CART 데이터'" style="font-size:12px;">
+            <th>아이디</th>
+            <th>check_time</th>
+            <th>led_state</th>
+            <th>lead_acid_battery_soc</th>
+            <th>humidity1</th>
+            <th>humidity2</th>
+            <th>temperature1</th>
+            <th>temperature2</th>
+            <th>gyro_x</th>
+            <th>gyro_y</th>
+            <th>gyro_z</th>
+            <th>isCableDisconnect</th>
+            <th>isEmergencyStop</th>
+            <th>isFanOperate</th>
+            <th>isHapticOperate</th>
+            <th>sonic1</th>
+            <th>sonic2</th>
+            <th>sonic3</th>
+            <th>sonic4</th>
+            <th>sonic5</th>
+        </tr>
+        <tr *ngIf="selectData.value === '파워모듈 데이터'">
+            <th>아이디</th>
+            <th>check_time</th>
+            <th>status</th>
+            <th>firmVer</th>
+            <th>fault1</th>
+            <th>fault2</th>
+            <th>fault3</th>
+            <th>dischargingKwh</th>
+            <th>cableVoltage</th>
+            <th>cableCurrent</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="selectData.value === 'BMS 데이터'" style="font-size:12px;">
+        <tr *ngFor="let data of datasBMS">
+            <td>{{data.sid}} {{data.cid}}</td>
+            <td>{{data.check_time}}</td>
+            <td>{{data.bms_state}}</td>
+            <td>{{data.accumulate_charging_amount}}</td>
+            <td>{{data.accumulate_discharging_amount}}</td>
+            <td>{{data.hw_version}}</td>
+            <td>{{data.soc}}</td>
+            <td>{{data.sw_version}}</td>
+            <td>{{data.temperature1}}</td>
+            <td>{{data.temperature2}}</td>
+            <td>{{data.average_temperature}}</td>
+            <td>{{data.average_voltage}}</td>
+            <td>{{data.difference_temperature}}</td>
+            <td>{{data.difference_voltage}}</td>
+            <td>{{data.fault_cell}}</td>
+            <td>{{data.fault_pack}}</td>
+            <td>{{data.highest_temperature}}</td>
+            <td>{{data.highest_voltage}}</td>
+            <td>{{data.lowest_temperature}}</td>
+            <td>{{data.lowest_voltage}}</td>
+            <td>{{data.pack_amphere}}</td>
+            <td>{{data.pack_voltage}}</td>
+            <td>{{data.warning_cell}}</td>
+            <td>{{data.warning_pack}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="selectData.value === 'CART 데이터'">
+        <tr *ngFor="let data of datasCART">
+            <td>{{data.sid}} {{data.cid}}</td>
+            <td>{{data.check_time}}</td>
+            <td>{{data.led_state}}</td>
+            <td>{{data.lead_acid_battery_soc}}</td>
+            <td>{{data.humidity1}}</td>
+            <td>{{data.humidity2}}</td>
+            <td>{{data.temperature1}}</td>
+            <td>{{data.temperature2}}</td>
+            <td>{{data.gyro_x}}</td>
+            <td>{{data.gyro_y}}</td>
+            <td>{{data.gyro_z}}</td>
+            <td>{{data.isCableDisconnect}}</td>
+            <td>{{data.isEmergencyStop}}</td>
+            <td>{{data.isFanOperate}}</td>
+            <td>{{data.isHapticOperate}}</td>
+            <td>{{data.sonic1}}</td>
+            <td>{{data.sonic2}}</td>
+            <td>{{data.sonic3}}</td>
+            <td>{{data.sonic4}}</td>
+            <td>{{data.sonic5}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="selectData.value === '파워모듈 데이터'">
+        <tr *ngFor="let data of datasPMODULE">
+            <td>{{data.sid}} {{data.cid}}</td>
+            <td>{{data.check_time}}</td>
+            <td>{{data.cable_current}}</td>
+            <td>{{data.cable_voltage}}</td>
+            <td>{{data.discharging_kwh}}</td>
+            <td>{{data.fault1}}</td>
+            <td>{{data.fault2}}</td>
+            <td>{{data.fault3}}</td>
+            <td>{{data.firm_ver}}</td>
+            <td>{{data.status}}</td>
+        </tr>
+    </tbody>
 </table>
-
-

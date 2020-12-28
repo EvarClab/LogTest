@@ -20,7 +20,7 @@ export class AppComponent {
 
   API_URL = "https://7r0s80ve99.execute-api.ap-northeast-2.amazonaws.com/deploy/all"; 
 
-  length: Array<number> = [0,0,0];
+  index:number = 0;
 
   constructor(private backend:BackendService) { 
 
@@ -28,62 +28,68 @@ export class AppComponent {
     dayjs.extend(utc);
     dayjs.locale('ko');   
 
-    // setInterval( ()=>{
-    //   this.datasBMS = [];
-    //   this.datasCART = [];
-    //   this.datasPMODULE = [];
+    setInterval( ()=>{
+      this.datasBMS = [];
+      this.datasCART = [];
+      this.datasPMODULE = [];
 
-    //   this.backend.getData().then( (data:any) => {
-    //     for(let d in data) {
-    //       // let message = JSON.parse(data[d].message);
-    //       let m = data[d].message;
-    //       let url = data[d].url;
-    //       let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
-    //       m.check_time = time;
-    //       switch(url) {
-    //         case 'bms': this.datasBMS.unshift(m); break;
-    //         case 'cart': this.datasCART.unshift(m); break;
-    //         case 'pmodule': this.datasPMODULE.unshift(m); break;
-    //       }
-    //     }
-    //     console.log(this.datasBMS);
-    //   });
-    // }, 5000);
-
-    this.datasBMS = [];
-    this.datasCART = [];
-    this.datasPMODULE = [];
-
-    this.backend.getData().then( (data:any) => {
-      for(let d in data) {
-        // let message = JSON.parse(data[d].message);
-        let m = data[d].message;
-        let url = data[d].url;
-        let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
-        m.check_time = time;
-        switch(url) {
-          case 'bms': this.datasBMS.unshift(m); break;
-          case 'cart': this.datasCART.unshift(m); break;
-          case 'pmodule': this.datasPMODULE.unshift(m); break;
-        }
-      }
-    });
-    
-    setInterval( () => {
       this.backend.getData().then( (data:any) => {
-        let datalength = data.length;
-
-        let m = data[datalength-1].message;
-        let url = data[datalength-1].url;
-        let time = dayjs.utc(data[datalength-1].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
-        m.check_time = time;
-        switch(url) {
-          case 'bms': this.datasBMS.unshift(m); break;
-          case 'cart': this.datasCART.unshift(m); break;
-          case 'pmodule': this.datasPMODULE.unshift(m); break;
+        for(let d in data) {
+          // let message = JSON.parse(data[d].message);
+          let m = data[d].message;
+          let url = data[d].url;
+          let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
+          m.check_time = time;
+          switch(url) {
+            case 'bms': this.datasBMS.push(m); break;
+            case 'cart': this.datasCART.push(m); break;
+            case 'pmodule': this.datasPMODULE.push(m); break;
+          }
         }
+        
       });
     }, 5000);
+
+    // this.datasBMS = [];
+    // this.datasCART = [];
+    // this.datasPMODULE = [];
+
+    // this.backend.getData().then( (data:any) => {
+
+    //   index = data[data.length-1].index;
+    //   console.log(`first index : ${index}`);
+
+    //   for(let d in data) {
+    //     // let message = JSON.parse(data[d].message);
+    //     let m = data[d].message;
+    //     let url = data[d].url;
+    //     let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
+    //     m.check_time = time;
+    //     switch(url) {
+    //       case 'bms': this.datasBMS.unshift(m); break;
+    //       case 'cart': this.datasCART.unshift(m); break;
+    //       case 'pmodule': this.datasPMODULE.unshift(m); break;
+    //     }
+    //   }
+    // });
+
+    // setInterval( () => {
+    //   this.backend.getData().then( (data:any) => {
+
+    //     if(data[data.length-1].index > index)
+
+    //     let m = data[data.length-1].message;
+    //     let url = data[data.length-1].url;
+    //     let time = dayjs.utc(data[data.length-1].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
+    //     m.check_time = time;
+
+    //     switch(url) {
+    //       case 'bms': this.datasBMS.unshift(m); break;
+    //       case 'cart': this.datasCART.unshift(m); break;
+    //       case 'pmodule': this.datasPMODULE.unshift(m); break;
+    //     }
+    //   });
+    // }, 5000);
     
   }
 
