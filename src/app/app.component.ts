@@ -40,10 +40,13 @@ export class AppComponent {
           let url = data[d].url;
           let time = dayjs.utc(data[d].createdAt).local().format("YYYY-MM-DD HH:mm:ss");
           m.check_time = time;
+
+          let obj:any = {};
+
           switch(url) {
-            case 'bms': this.datasBMS.push(m); break;
-            case 'cart': this.datasCART.push(m); break;
-            case 'pmodule': this.datasPMODULE.push(m); break;
+            case 'bms': obj = m; obj.sid = data[d].sid; obj.cid = data[d].cid; this.datasBMS.push(obj); break;
+            case 'cart': obj = m; obj.sid = data[d].sid; obj.cid = data[d].cid; this.datasCART.push(obj); break;
+            case 'pmodule': obj = m; obj.sid = data[d].sid; obj.cid = data[d].cid; this.datasPMODULE.push(obj); break;
           }
         }
         
